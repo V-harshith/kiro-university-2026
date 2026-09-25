@@ -40,6 +40,13 @@ export interface JsonLdInput {
   reviews?: Review[];
 }
 
+/** A single schema.org Review entry shaped for Google's rich-result parser. */
+export interface JsonLdReview {
+  "@type": "Review";
+  author: { "@type": "Person"; name: string };
+  reviewBody: string;
+}
+
 /** schema.org LocalBusiness object (plain, JSON-serialisable). */
 export interface JsonLdBlock {
   "@context": "https://schema.org";
@@ -48,7 +55,7 @@ export interface JsonLdBlock {
   telephone: string;
   areaServed: string;
   description: string;
-  review?: Array<{ author: string; reviewBody: string }>;
+  review?: JsonLdReview[];
 }
 
 /** Input subset for buildFaq. */

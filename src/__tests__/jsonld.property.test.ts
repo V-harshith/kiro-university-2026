@@ -52,16 +52,22 @@ describe("buildJsonLd — property tests", () => {
 
   // Feature: localpage-factory, Property 11: JSON-LD review array mirrors input reviews
   // Validates: Requirement R4.8
-  it("Property 11 — review array length and content mirrors input reviews", () => {
+  it("Property 11 — review array length and content mirrors input reviews (Google rich-result shape)", () => {
     fc.assert(
       fc.property(inputWithReviewsArb, (input) => {
         const result = buildJsonLd(input);
         if (!result.review) return false;
         if (result.review.length !== input.reviews!.length) return false;
         return input.reviews!.every(
-          (r, i) =>
-            result.review![i].author === r.author &&
-            result.review![i].reviewBody === r.text,
+          (r, i) => {
+            const entry = result.review![i];
+            return (
+              entry["@type"] === "Review" &&
+              entry.author["@type"] === "Person" &&
+              entry.author.name === r.author &&
+              entry.reviewBody === r.text
+            );
+          },
         );
       }),
       { numRuns: 200 },

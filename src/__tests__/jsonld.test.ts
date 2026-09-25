@@ -43,7 +43,7 @@ describe("buildJsonLd — example-based tests", () => {
     expect(result).not.toHaveProperty("review");
   });
 
-  it("maps reviews to review array with author and reviewBody (R4.8)", () => {
+  it("maps reviews to review array with Google rich-result shape (R4.8)", () => {
     const input = {
       ...base,
       reviews: [
@@ -53,8 +53,16 @@ describe("buildJsonLd — example-based tests", () => {
     };
     const result = buildJsonLd(input);
     expect(result.review).toHaveLength(2);
-    expect(result.review?.[0]).toEqual({ author: "Alice", reviewBody: "Great service!" });
-    expect(result.review?.[1]).toEqual({ author: "Bob", reviewBody: "Very professional." });
+    expect(result.review?.[0]).toEqual({
+      "@type": "Review",
+      author: { "@type": "Person", name: "Alice" },
+      reviewBody: "Great service!",
+    });
+    expect(result.review?.[1]).toEqual({
+      "@type": "Review",
+      author: { "@type": "Person", name: "Bob" },
+      reviewBody: "Very professional.",
+    });
   });
 
   it("throws when review is missing text field (R4.10)", () => {

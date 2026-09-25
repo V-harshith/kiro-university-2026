@@ -49,7 +49,11 @@ export function buildJsonLd(input: JsonLdInput): JsonLdBlock {
           `buildJsonLd: review at index ${i} is missing a valid "text" field`,
         );
       }
-      return { author: r.author, reviewBody: r.text };
+      return {
+        "@type": "Review" as const,
+        author: { "@type": "Person" as const, name: r.author },
+        reviewBody: r.text,
+      };
     });
 
     if (reviewArray.length > 0) {
