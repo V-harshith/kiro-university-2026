@@ -1,0 +1,15 @@
+{
+  "version": "v1",
+  "hooks": [
+    {
+      "name": "Test Gate on Task Completion",
+      "trigger": "PostTaskExec",
+      "description": "Run the full Vitest suite after every spec task completes and report the pass/fail summary as a gate.",
+      "action": {
+        "type": "command",
+        "command": "npx vitest run 2>&1 | tail -10",
+        "timeout": 120
+      }
+    }
+  ]
+}

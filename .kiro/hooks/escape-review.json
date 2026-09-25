@@ -1,0 +1,15 @@
+{
+  "version": "v1",
+  "hooks": [
+    {
+      "name": "Escape Review on Save",
+      "trigger": "PostFileSave",
+      "description": "On every src/ file save, ask the agent to verify that user-supplied strings injected into HTML have passed through escapeHtml — catching any accidental bypass of the XSS guard.",
+      "matcher": "^src/",
+      "action": {
+        "type": "agent",
+        "prompt": "A file under src/ was just saved. Review the change and check: does every user-supplied string that gets interpolated into HTML markup pass through the escapeHtml() function from src/escape.ts before injection? Specifically look for template-literal or string-concatenation HTML construction in the saved file. If any user-controlled value reaches HTML without going through escapeHtml, report the exact line(s) and explain the risk. If all interpolations are safe, confirm that briefly."
+      }
+    }
+  ]
+}

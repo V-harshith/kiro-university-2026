@@ -1,0 +1,16 @@
+{
+  "version": "v1",
+  "hooks": [
+    {
+      "name": "Property Tests on Save",
+      "trigger": "PostFileSave",
+      "description": "Run the full Vitest suite whenever a file under src/ is saved; surface any failures in the output channel.",
+      "matcher": "^src/",
+      "action": {
+        "type": "command",
+        "command": "npx vitest run --reporter=verbose 2>&1 | tail -30",
+        "timeout": 120
+      }
+    }
+  ]
+}
