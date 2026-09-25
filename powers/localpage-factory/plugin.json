@@ -1,0 +1,22 @@
+{
+  "$schema": "https://agent-plugins.org/schemas/1.0.0/plugin.schema.json",
+  "name": "localpage-factory",
+  "version": "1.0.0",
+  "description": "Turn a local business's details into a publish-ready local landing page: SEO slug, title tag and meta description within length limits, schema.org LocalBusiness JSON-LD, an FAQ block, and one self-contained HTML file with inline CSS.",
+  "author": {
+    "name": "Harshith Velneni",
+    "url": "https://github.com/V-harshith"
+  },
+  "keywords": [
+    "local seo",
+    "landing page",
+    "schema.org",
+    "json-ld",
+    "slug",
+    "meta description",
+    "faq",
+    "static html"
+  ],
+  "license": "MIT",
+  "repository": "https://github.com/V-harshith/kiro-university-2026"
+}
