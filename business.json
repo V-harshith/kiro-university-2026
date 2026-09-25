@@ -1,0 +1,11 @@
+{
+  "businessName": "Sunrise Roofing & Repair",
+  "city": "Portland",
+  "primaryService": "residential roof replacement",
+  "phone": "503-555-0199",
+  "tone": "friendly",
+  "reviews": [
+    { "author": "Maria G.", "text": "They replaced our entire roof in two days. Spotless cleanup and a fair price." },
+    { "author": "James T.", "text": "Showed up on time, finished ahead of schedule. Highly recommend." }
+  ]
+}

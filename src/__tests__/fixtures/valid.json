@@ -1,0 +1,11 @@
+{
+  "businessName": "Acme Plumbing",
+  "city": "Austin",
+  "primaryService": "pipe repair",
+  "phone": "512-555-0100",
+  "tone": "professional",
+  "reviews": [
+    { "author": "Alice", "text": "Excellent work, very professional." },
+    { "author": "Bob",   "text": "Fast and reliable service." }
+  ]
+}

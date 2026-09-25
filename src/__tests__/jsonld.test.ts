@@ -58,20 +58,14 @@ describe("buildJsonLd — example-based tests", () => {
   });
 
   it("throws when review is missing text field (R4.10)", () => {
-    const input = {
-      ...base,
-      // @ts-expect-error intentional malformed review
-      reviews: [{ author: "Alice" }],
-    };
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+    const input = { ...base, reviews: [{ author: "Alice" }] } as any;
     expect(() => buildJsonLd(input)).toThrow(/text/);
   });
 
   it("throws when review is missing author field (R4.10)", () => {
-    const input = {
-      ...base,
-      // @ts-expect-error intentional malformed review
-      reviews: [{ text: "Good work" }],
-    };
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+    const input = { ...base, reviews: [{ text: "Good work" }] } as any;
     expect(() => buildJsonLd(input)).toThrow(/author/);
   });
 
