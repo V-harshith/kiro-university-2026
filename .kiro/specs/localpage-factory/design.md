@@ -313,8 +313,10 @@ value of `city`.
 ### Property 11: JSON-LD review array mirrors input reviews
 
 *For any* valid `JsonLdInput` with a non-empty `reviews` array of 1–100 `Review` objects,
-`buildJsonLd(input).review` SHALL be an array of the same length in which each element has
-`author` equal to `reviews[i].author` and `reviewBody` equal to `reviews[i].text`.
+`buildJsonLd(input).review` SHALL be an array of the same length in which each element is a
+`Review` node (`"@type": "Review"`) whose `author` is a `Person` node (`"@type": "Person"`) with
+`name` equal to `reviews[i].author`, and whose `reviewBody` equals `reviews[i].text`. The nested
+`@type` annotations are what Google's rich-result parser expects for review snippets.
 
 **Validates: Requirements 4.8**
 
