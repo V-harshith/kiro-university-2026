@@ -229,7 +229,7 @@ field, and the error SHALL be thrown for every field removal.
 *For any* `BusinessInput` in which every required field is a non-empty, non-whitespace-only
 string, `validate()` SHALL return without throwing.
 
-**Validates: Requirement 1.5**
+**Validates: Requirements 1.5**
 
 ---
 
@@ -251,7 +251,7 @@ string, `validate()` SHALL return without throwing.
 *For any* valid pair of inputs, calling `slugify` twice SHALL return the same value both
 times.
 
-**Validates: Requirement 2.6**
+**Validates: Requirements 2.6**
 
 ---
 
@@ -260,7 +260,7 @@ times.
 *For any* string that is empty or composed entirely of whitespace characters, passing it as
 either the `businessName` or `city` argument to `slugify` SHALL cause `slugify` to throw.
 
-**Validates: Requirement 2.9**
+**Validates: Requirements 2.9**
 
 ---
 
@@ -268,7 +268,7 @@ either the `businessName` or `city` argument to `slugify` SHALL cause `slugify` 
 
 *For any* valid `MetaInput`, `buildMeta(input).title` SHALL have length ≤ 60.
 
-**Validates: Requirement 3.2**
+**Validates: Requirements 3.2**
 
 ---
 
@@ -276,7 +276,7 @@ either the `businessName` or `city` argument to `slugify` SHALL cause `slugify` 
 
 *For any* valid `MetaInput`, `buildMeta(input).description` SHALL have length ≤ 155.
 
-**Validates: Requirement 3.3**
+**Validates: Requirements 3.3**
 
 ---
 
@@ -295,7 +295,7 @@ value of `city`.
 *For any* valid `MetaInput`, calling `buildMeta` twice with identical arguments SHALL return
 `MetaResult` objects with equal `title` and `description` values.
 
-**Validates: Requirement 3.7**
+**Validates: Requirements 3.7**
 
 ---
 
@@ -316,7 +316,7 @@ value of `city`.
 `buildJsonLd(input).review` SHALL be an array of the same length in which each element has
 `author` equal to `reviews[i].author` and `reviewBody` equal to `reviews[i].text`.
 
-**Validates: Requirement 4.8**
+**Validates: Requirements 4.8**
 
 ---
 
@@ -338,7 +338,7 @@ arbitrary safe characters, `escapeHtml(s)` SHALL contain none of the five raw sp
 characters and each occurrence SHALL be replaced with its corresponding HTML entity
 (`&amp;`, `&lt;`, `&gt;`, `&quot;`, `&#39;`).
 
-**Validates: Requirement 5.1**
+**Validates: Requirements 5.1**
 
 ---
 
@@ -347,7 +347,7 @@ characters and each occurrence SHALL be replaced with its corresponding HTML ent
 *For any* string composed entirely of characters not in `{&, <, >, ", '}`,
 `escapeHtml(s) === s`.
 
-**Validates: Requirement 5.2**
+**Validates: Requirements 5.2**
 
 ---
 
@@ -358,7 +358,7 @@ characters and each occurrence SHALL be replaced with its corresponding HTML ent
 characters in the regions of the document derived from user-supplied text (outside the
 `<script type="application/ld+json">` block, which uses JSON encoding).
 
-**Validates: Requirement 5.5**
+**Validates: Requirements 5.5**
 
 ---
 
@@ -376,7 +376,7 @@ closed interval [3, 5].
 *For any* valid `FaqInput`, every element of `buildFaq(input)` SHALL have a `question` of
 1–200 characters and an `answer` of 1–500 characters.
 
-**Validates: Requirement 6.4**
+**Validates: Requirements 6.4**
 
 ---
 
@@ -385,7 +385,7 @@ closed interval [3, 5].
 *For any* valid `FaqInput` with `tone` equal to `"friendly"` or `"casual"`, every `answer`
 in `buildFaq(input)` SHALL match the regular expression `/\byou\b|\byour\b/i`.
 
-**Validates: Requirement 6.6**
+**Validates: Requirements 6.6**
 
 ---
 
@@ -394,7 +394,7 @@ in `buildFaq(input)` SHALL match the regular expression `/\byou\b|\byour\b/i`.
 *For any* valid `FaqInput` with `tone` equal to `"professional"` or `tone` absent, no
 `answer` in `buildFaq(input)` SHALL match `/\byou\b|\byour\b/i`.
 
-**Validates: Requirement 6.7**
+**Validates: Requirements 6.7**
 
 ---
 
@@ -403,7 +403,7 @@ in `buildFaq(input)` SHALL match the regular expression `/\byou\b|\byour\b/i`.
 *For any* valid `FaqInput`, calling `buildFaq` twice with identical arguments SHALL return
 arrays that are deeply equal.
 
-**Validates: Requirement 6.5**
+**Validates: Requirements 6.5**
 
 ---
 
@@ -428,7 +428,7 @@ arrays that are deeply equal.
 *For any* valid `BusinessInput`, calling `assemble(input)` twice SHALL return the same
 string both times.
 
-**Validates: Requirement 7.11**
+**Validates: Requirements 7.11**
 
 ---
 
@@ -438,7 +438,7 @@ string both times.
 `validate(JSON.parse(JSON.stringify(b)))` SHALL produce a `BusinessInput` object whose
 every field is identical in type and value to `b`.
 
-**Validates: Requirement 9.2**
+**Validates: Requirements 9.2**
 
 ---
 
